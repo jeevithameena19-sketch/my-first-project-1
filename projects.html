@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Jeevitha K S</title>
+    <meta name="description" content="Projects and academic work by Jeevitha K S.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .filter-bar { display:flex; gap:.7rem; justify-content:center; flex-wrap:wrap; margin-bottom:3rem; }
+        .filter-btn {
+            padding:.5rem 1.4rem; border-radius:100px; border:1px solid var(--border-color);
+            background:var(--surface-color); color:var(--text-muted); font-size:.85rem;
+            font-weight:600; cursor:pointer; transition:all .3s; font-family:var(--font-heading);
+        }
+        .filter-btn:hover,.filter-btn.active {
+            background:linear-gradient(135deg,var(--primary),var(--secondary));
+            color:#fff; border-color:transparent; box-shadow:0 4px 16px var(--primary-glow);
+        }
+        .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:2rem; }
+        .project-card {
+            background:var(--surface-color); border:1px solid var(--border-color);
+            border-radius:var(--radius-card); overflow:hidden;
+            transition:transform .35s,border-color .35s,box-shadow .35s;
+            display:flex; flex-direction:column;
+        }
+        .project-card:hover {
+            transform:translateY(-8px); border-color:rgba(167,139,250,.4);
+            box-shadow:0 24px 60px rgba(0,0,0,.45);
+        }
+        .project-banner {
+            height:160px; position:relative; display:flex;
+            align-items:center; justify-content:center;
+        }
+        .project-banner-gradient { position:absolute; inset:0; }
+        .project-banner-icon { font-size:3.2rem; position:relative; z-index:1; }
+        .project-badge {
+            position:absolute; top:1rem; right:1rem;
+            padding:.22rem .75rem; border-radius:100px;
+            font-size:.7rem; font-weight:700; letter-spacing:1px;
+            text-transform:uppercase; z-index:2;
+        }
+        .badge-academic { background:rgba(167,139,250,.2); color:var(--primary); border:1px solid rgba(167,139,250,.35); }
+        .badge-personal { background:rgba(244,114,182,.2); color:var(--secondary); border:1px solid rgba(244,114,182,.35); }
+        .badge-team     { background:rgba(56,189,248,.2);  color:var(--accent);    border:1px solid rgba(56,189,248,.35); }
+        .project-body { padding:1.6rem; flex:1; display:flex; flex-direction:column; }
+        .project-title { font-size:1.15rem; font-weight:700; margin-bottom:.5rem; }
+        .project-desc  { color:var(--text-muted); font-size:.9rem; line-height:1.7; flex:1; margin-bottom:1.1rem; }
+        .project-tags  { display:flex; flex-wrap:wrap; gap:.45rem; margin-bottom:1.3rem; }
+        .project-tag {
+            padding:.22rem .65rem; background:rgba(167,139,250,.08);
+            color:var(--primary); border:1px solid rgba(167,139,250,.2);
+            border-radius:6px; font-size:.77rem; font-weight:500;
+        }
+        .coming-soon-strip {
+            margin-top:3.5rem; padding:2.5rem 2rem;
+            background:var(--surface-color); border:1px dashed rgba(167,139,250,.3);
+            border-radius:var(--radius-card); text-align:center;
+        }
+        .coming-soon-strip h3 { font-size:1.3rem; margin-bottom:.5rem; }
+        .coming-soon-strip p { color:var(--text-muted); max-width:460px; margin:0 auto 1.5rem; }
+        @media(max-width:768px){ .projects-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+    <main class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">What I've built</span>
+                <h1>My <span class="text-gradient">Projects</span></h1>
+                <p>Academic projects, assignments, and personal explorations in technology.</p>
+            </div>
+
+            <div class="filter-bar reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="academic">Academic</button>
+                <button class="filter-btn" data-filter="personal">Personal</button>
+                <button class="filter-btn" data-filter="team">Team</button>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card reveal" data-category="academic">
+                    <div class="project-banner">
+                        <div class="project-banner-gradient" style="background:linear-gradient(135deg,#1a0533,#2d1a5e);"></div>
+                        <span class="project-badge badge-academic">Academic</span>
+                        <span class="project-banner-icon">🗃️</span>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Library Management System</h3>
+                        <p class="project-desc">A database-driven system to manage books, members, and issue/return transactions. Designed as part of BCA coursework exploring DBMS concepts.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">DBMS</span>
+                            <span class="project-tag">SQL</span>
+                            <span class="project-tag">BCA Project</span>
+                        </div>
+                        <span class="btn btn-ghost" style="font-size:.84rem;padding:.55rem 1.1rem;cursor:default;opacity:.6;">Academic Work</span>
+                    </div>
+                </div>
+
+                <div class="project-card reveal delay-1" data-category="personal">
+                    <div class="project-banner">
+                        <div class="project-banner-gradient" style="background:linear-gradient(135deg,#1a0a2e,#3d1565);"></div>
+                        <span class="project-badge badge-personal">Personal</span>
+                        <span class="project-banner-icon">🌐</span>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Personal Portfolio Website</h3>
+                        <p class="project-desc">This very portfolio — built with pure HTML, CSS & JavaScript. Multi-page navigation, smooth animations, responsive design, and resume download.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <a href="index.html" class="btn btn-primary" style="font-size:.84rem;padding:.55rem 1.1rem;">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal delay-2" data-category="academic">
+                    <div class="project-banner">
+                        <div class="project-banner-gradient" style="background:linear-gradient(135deg,#0a1a3e,#0d2d6e);"></div>
+                        <span class="project-badge badge-academic">Academic</span>
+                        <span class="project-banner-icon">📊</span>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Student Result Management</h3>
+                        <p class="project-desc">A program to input, store, and compute student results — automatically calculating grades and percentages. Practiced programming logic & data handling.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Programming</span>
+                            <span class="project-tag">Logic</span>
+                            <span class="project-tag">BCA</span>
+                        </div>
+                        <span class="btn btn-ghost" style="font-size:.84rem;padding:.55rem 1.1rem;cursor:default;opacity:.6;">Academic Work</span>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="team">
+                    <div class="project-banner">
+                        <div class="project-banner-gradient" style="background:linear-gradient(135deg,#0d2a1a,#0a4020);"></div>
+                        <span class="project-badge badge-team">Team</span>
+                        <span class="project-banner-icon">🤝</span>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">College Event Management</h3>
+                        <p class="project-desc">Collaborated with a team to organize and manage college event registrations. Gained hands-on experience in coordination, leadership and communication.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Team Work</span>
+                            <span class="project-tag">Leadership</span>
+                            <span class="project-tag">Management</span>
+                        </div>
+                        <span class="btn btn-ghost" style="font-size:.84rem;padding:.55rem 1.1rem;cursor:default;opacity:.6;">Collaborative</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coming-soon-strip reveal">
+                <div style="font-size:2.5rem;margin-bottom:.8rem;">🚀</div>
+                <h3>More Projects <span class="text-gradient">Coming Soon</span></h3>
+                <p>Currently working on exciting new projects as part of my BCA program. Stay tuned!</p>
+                <a href="contact.html" class="btn btn-primary">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    Collaborate with Me
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="layout.js"></script>
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'flex' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
